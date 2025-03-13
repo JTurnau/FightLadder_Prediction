@@ -125,12 +125,12 @@ class SFWrapper(gym.Wrapper):
         # info['round'] = 'start' if self.round_status == START_STATUS else 'end'
         # print(info, flush=True)
         max_round = 1 if bonus else 3
-
-        agent_hp = info['agent_hp']
-        enemy_hp = info['enemy_hp']
-        agent_victories = info['agent_victories']
-        enemy_victories = info['enemy_victories']
-        round_countdown = info['round_countdown']
+        print(info)
+        agent_hp = info['health']
+        enemy_hp = info['enemy_health']
+        agent_victories = info['matches_won']
+        enemy_victories = info['enemy_matches_won']
+        round_countdown = info['continuetimer']
         timesup = (round_countdown <= 0)
 
         if self.match_status == END_STATUS and (agent_victories == 0 and enemy_victories == 0):
@@ -247,11 +247,11 @@ class SFWrapper(gym.Wrapper):
                 self.env.render()
                 time.sleep(0.01)
 
-        agent_hp = info['agent_hp']
-        enemy_hp = info['enemy_hp']
-        agent_victories = info['agent_victories']
-        enemy_victories = info['enemy_victories']
-        round_countdown = info['round_countdown']
+        agent_hp = info['health']
+        enemy_hp = info['enemy_health']
+        agent_victories = info['matches_won']
+        enemy_victories = info['enemy_matches_won']
+        round_countdown = info['continuetimer']
         timesup = (round_countdown <= 0)
 
         self.total_timesteps += self.num_step_frames
