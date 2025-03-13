@@ -95,7 +95,7 @@ def evaluate(args, model=None, left_model=None, right_model=None, greedy=0.99, r
                     container.mux(remain_packets)
                     container.close()
 
-        if info['enemy_hp'] < info['agent_hp']:
+        if info['enemy_health'] < info['health']:
             print("Victory!")
             win_cnt += 1
 
